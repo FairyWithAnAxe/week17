@@ -45,24 +45,24 @@
             document.getElementById('name').value = '';
             document.getElementById('surname').value = '';
             document.getElementById('patr').value = '';
+            
             let fio = document.getElementById("fio").value
             console.log(fio);
+            
             fio2 = fio.replace(/ +/g, ' ').trim();
             console.log(fio2);
+            
             let small = fio2.toLowerCase();
             console.log(small);
+            
             let arr = small.split(" ");
             console.log(arr);
-            //arr.forEach(alert);
+           
             arr.forEach(function (word, index) {
                 arr[index] = word[0].toUpperCase() + word.substring(1);
             })
             console.log(arr);
-            //let name=arr[1];
-            //console.log(name);
-            //alert (arr[0]);
-            //document.getElementById("name").innerHTML += name;
-
+            
             document.getElementById('surname').value += arr[0];            
             document.getElementById("name").value += arr[1];
             document.getElementById('patr').value += arr[2];
