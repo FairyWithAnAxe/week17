@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #public{
+            width: 500px;
+            height: 200px;
+            border: 2px solid blueviolet;
+            margin-bottom: 20px;
+        }
+        .input{
+            margin-bottom: 10px;
+        }
+        /*#btn{
+            background-color: blueviolet;;
+        }*/
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+<h1>Комментарии:</h1>
+    <div id="public" class="input"></div>
+    <textarea name="" id="comment" class="input" placeholder="Оставить комментарий" cols="50" ></textarea>
+    <button id='btn' onclick="checkSpam();">Отправить</button>
+</div>
+
+
+    <script>
+        document.getElementById("comment").value = "";
+
+        function checkSpam() {
+
+            let str = document.getElementById("comment").value;
+
+            let spam1 = str.replace(/xxx/ig, "***");
+            let antiSpam1 = spam1;
+            let spam2 = antiSpam1.replace(/viagra/ig, "***");
+            let antiSpam2 = spam2;
+
+            document.getElementById("public").innerHTML += antiSpam2 + "<br/><br/>";
+            document.getElementById("comment").value = "";
+
+        }
+    </script>
+</body>
+
+</html>

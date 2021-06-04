@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+
+
+<body>
+    <button onclick="get();">Тык</button>
+
+    <script>
+        
+        let numbers = [];
+        let sum = 0;
+        let mult = 1;
+        function get(){
+        for (let i = 0; i < 10; i++) {
+            let numberRandom = Math.round(Math.random() * (10 - (-10))) + (-10);            
+            numbers.push(numberRandom);
+        }
+        console.log(numbers);
+        document.write("10 случайных чисел: " + numbers.toString() +"<br>");
+
+        let min = Math.min.apply(null, numbers)
+        console.log(min);
+        document.write("Минимальное: " + min.toString() +"<br>");
+
+        let max = Math.max.apply(null, numbers)
+        console.log(max);
+        document.write("Максимальное: " + max.toString() +"<br>");
+
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        console.log(sum);
+        document.write("Сумма всех чисел равна: " + sum.toString() +"<br>");
+
+        // или
+        //let sum2 = numbers.reduce((a, b) => a + b, 0);
+        //console.log(sum2);
+        //document.write("Сумма всех чисел равна: " + sum2.toString());
+
+        for (let i = 0; i < numbers.length; i++) {
+            mult = mult *= numbers[i];
+        }
+        console.log(mult);
+        document.write("Произведение чисел: " + mult.toString() +"<br>");
+
+        let average = sum / numbers.length;
+        console.log(average);
+        document.write("Среднее арифметическое: " + average.toString() +"<br>");
+
+    }
+    </script>
+</body>
+
+</html>
