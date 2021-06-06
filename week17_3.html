@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        function formatDate(date) {
+            let now = new Date();
+            if ((now - date.getTime()) <= 1000 && (now - date.getTime()) >= 0) {
+                return 'Прямо сейчас!';
+            } else if ((now - date.getTime()) < 60000 && (now - date.getTime()) >= 0) {
+                let seconds = (now - date.getTime()) / 1000;
+                return `${seconds} секунд назад`;
+            } else if ((now - date.getTime()) < 3600000 && (now - date.getTime()) >= 0) {
+                let minutes = (now - date.getTime()) / 60000;
+                return `${minutes} минут назад`;
+            } else {
+                finalDate = new Date(Date.parse(date));
+                return `${finalDate.getDate()}.0${finalDate.getMonth() + 1}.${finalDate.getFullYear()}, ${finalDate.getHours()}:${finalDate.getMinutes()} `;
+            }
+        }
+
+        alert(formatDate(new Date(new Date - 1)));
+
+        alert(formatDate(new Date(new Date - 30 * 1000)));
+
+        alert(formatDate(new Date(new Date - 5 * 60 * 1000)));
+
+        alert(formatDate(new Date(new Date - 86400 * 1000)));
+    </script>
+</body>
+
+</html>
